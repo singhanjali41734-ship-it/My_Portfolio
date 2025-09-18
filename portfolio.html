@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Anjali Kumari — Portfolio</title>
+  <meta name="description" content="Portfolio of Anjali Kumari, 3rd-year engineering student showcasing skills and projects." />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#0f1724;
+      --card:#0b1220;
+      --muted:#9aa9bf;
+      --accent:#7c3aed;
+      --glass: rgba(255,255,255,0.04);
+      --radius:12px;
+      font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+      color-scheme: dark;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      background:linear-gradient(180deg,var(--bg),#071023 140%);
+      color:#e6eef8;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.45;
+      padding-bottom:80px;
+    }
+    header{
+      position:sticky;top:12px;z-index:40;backdrop-filter:blur(6px);
+      display:flex;justify-content:center
+    }
+    .nav-wrap{
+      width:100%;max-width:1100px;padding:10px 18px;display:flex;align-items:center;justify-content:space-between;gap:12px;background:transparent
+    }
+    .brand{display:flex;gap:12px;align-items:center}
+    .logo{width:44px;height:44px;background:linear-gradient(135deg,var(--accent),#4f46e5);border-radius:10px;display:grid;place-items:center;font-weight:800;color:white}
+    nav{display:flex;gap:18px;align-items:center}
+    nav a{color:var(--muted);text-decoration:none;padding:8px 10px;border-radius:8px;font-weight:600}
+    nav a:hover{color:white;background:var(--glass)}
+    .cta{background:linear-gradient(90deg,var(--accent),#5b21b6);padding:8px 12px;border-radius:10px;color:white;text-decoration:none;font-weight:700}
+
+    .container{max-width:1100px;margin:40px auto;padding:0 18px}
+    .hero{display:grid;grid-template-columns:1fr 360px;gap:28px;align-items:center}
+    .card{background:linear-gradient(180deg,rgba(255,255,255,0.02),transparent);border-radius:var(--radius);padding:22px}
+    .intro h1{font-size:clamp(28px,4vw,44px);margin:0 0 8px}
+    .intro p{color:var(--muted);margin:0 0 18px}
+    .hero-actions{display:flex;gap:12px;flex-wrap:wrap}
+    .ghost{background:transparent;border:1px solid rgba(255,255,255,0.06);padding:8px 12px;border-radius:10px;color:var(--muted);text-decoration:none}
+
+    .skills{display:flex;flex-wrap:wrap;gap:10px}
+    .skill{background:linear-gradient(180deg,rgba(255,255,255,0.02),transparent);padding:8px 12px;border-radius:999px;color:var(--muted);font-weight:600}
+
+    .projects-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:18px}
+    .project{padding:16px;border-radius:14px;background:linear-gradient(180deg,rgba(255,255,255,0.02),transparent);transition:transform .28s ease, box-shadow .28s ease}
+    .project:hover{transform:translateY(-8px);box-shadow:0 10px 30px rgba(2,6,23,0.6)}
+    .project h3{margin:0 0 8px}
+    .project p{margin:0;color:var(--muted);font-size:14px}
+    .tags{margin-top:12px;display:flex;gap:8px;flex-wrap:wrap}
+
+    .two-col{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+    .contact-form input,.contact-form textarea{width:100%;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit}
+    .contact-form button{padding:10px 14px;border-radius:10px;border:0;background:var(--accent);font-weight:700}
+
+    footer{margin-top:40px;text-align:center;color:var(--muted)}
+
+    @media (max-width:900px){
+      .hero{grid-template-columns:1fr;}
+      .projects-grid{grid-template-columns:repeat(2,1fr)}
+      .two-col{grid-template-columns:1fr}
+      nav{display:none}
+      .menu-btn{display:inline-flex}
+    }
+    @media (max-width:480px){
+      .projects-grid{grid-template-columns:1fr}
+    }
+
+    .reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease, transform .6s cubic-bezier(.2,.9,.3,1)}
+    .reveal.visible{opacity:1;transform:none}
+
+    .muted{color:var(--muted)}
+    .chip{padding:6px 10px;border-radius:999px;background:rgba(255,255,255,0.02);font-weight:600}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="nav-wrap">
+      <div class="brand">
+        <div class="logo">AK</div>
+        <div>
+          <div style="font-weight:700">Anjali Kumari</div>
+          <div style="font-size:12px;color:var(--muted)">ECE Student • Developer</div>
+        </div>
+      </div>
+      <nav>
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#resume">Resume</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <div style="display:flex;gap:10px;align-items:center">
+        <a class="ghost" href="#contact">Hire me</a>
+        <a class="cta" href="#projects">See work</a>
+        <button class="menu-btn ghost" aria-label="menu" style="display:none">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero card reveal" id="home" style="overflow:hidden">
+      <div class="intro">
+        <h1>Hi, I'm <span style="background:linear-gradient(90deg,var(--accent),#8b5cf6);-webkit-background-clip:text;background-clip:text;color:transparent;">Anjali Kumari</span></h1>
+        <p class="muted">I am a 3rd-year engineering student in Electronics and Communication Engineering at Ajay Kumar Garg Engineering College. Passionate about web development, learning new technologies, and open to internships.</p>
+        <div class="hero-actions">
+          <a class="cta" href="#contact">Work with me</a>
+          <a class="ghost" href="/resume.pdf" download>Download resume</a>
+        </div>
+        <div style="margin-top:18px">
+          <div class="skills" id="skills">
+            <span class="skill">HTML</span>
+            <span class="skill">CSS</span>
+            <span class="skill">MS Excel</span>
+            <span class="skill">MySQL</span>
+            <span class="skill">Python</span>
+          </div>
+        </div>
+      </div>
+
+      <aside style="display:flex;flex-direction:column;gap:12px">
+        <div class="card" style="text-align:center">
+          <img src="WhatsApp Image 2025-09-18 at 14.22.52_4d909ca4.jpg" alt="Anjali Kumari" style="width:120px;height:120px;border-radius:12px;margin:0 auto;display:block;object-fit:cover"/>
+          <div style="margin-top:12px;font-weight:700">Anjali Kumari</div>
+          <div style="font-size:13px;color:var(--muted)">Based in India</div>
+          <div style="margin-top:12px;display:flex;gap:8px;justify-content:center">
+            <a class="ghost" href="#projects">Projects</a>
+            <a class="ghost" href="mailto:singhanjali41734@gmail.com">Email</a>
+          </div>
+        </div>
+
+        <div class="card muted" style="padding:14px;text-align:left">
+          <div style="font-size:12px">Availability</div>
+          <div style="font-weight:700;margin-top:6px">Open to internships & freelance</div>
+          <div style="margin-top:8px;font-size:13px;color:var(--muted)">Looking for roles involving frontend development and learning opportunities.</div>
+        </div>
+      </aside>
+
+    </section>
+
+    <section id="about" class="card reveal" style="margin-top:22px;padding:20px">
+      <h2>About</h2>
+      <p class="muted">I’m a 3rd-year engineering student with a passion for building interfaces that are both beautiful and usable. I enjoy learning new technologies and turning ideas into polished products.</p>
+      <div style="margin-top:12px;display:flex;gap:12px;flex-wrap:wrap">
+        <div class="chip">ECE Student</div>
+        <div class="chip">Aspiring Web Developer</div>
+        <div class="chip">Tech Enthusiast</div>
+      </div>
+    </section>
+
+    <section id="projects" class="reveal" style="margin-top:18px">
+      <h2>Projects</h2>
+      <div class="projects-grid">
+        <article class="https://github.com/singhanjali41734-ship-it/codealpha_tasks/commit/dfe4886aa131805e5b6f6bd5e02c28763d03ff61">
+          <h3>Calculator</h3>
+          <p>A simple calculator built using HTML and CSS.</p>
+          <div class="tags">
+            <span class="skill">HTML</span>
+            <span class="skill">CSS</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="resume" class="card reveal two-col" style="margin-top:18px;padding:20px;align-items:start">
+      <div>
+        <h2>Resume</h2>
+        <p class="muted">A downloadable resume and a compact summary of experience, education and contact details.</p>
+        <ul class="muted" style="margin-top:12px">
+          <li>Education: B.E. — Ajay Kumar Garg Engineering College (2022 — present)</li>
+          <li>Branch: Electronics and Communication Engineering</li>
+          <li>Projects: Calculator using HTML & CSS</li>
+        </ul>
+        <div style="margin-top:12px">
+          <a class="cta" href="ANJALI SINGH.pdf" download>Download PDF</a>
+        </div>
+      </div>
+
+      <div>
+        <h3>Quick skills</h3>
+        <div style="margin-top:8px" class="skills">
+          <span class="skill">HTML</span>
+          <span class="skill">CSS</span>
+          <span class="skill">MS Excel</span>
+          <span class="skill">MySQL</span>
+          <span class="skill">Python</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="card reveal" style="margin-top:18px;padding:20px">
+      <h2>Contact</h2>
+      <p class="muted">Want to work together or have questions? Reach out — I usually reply within a couple of days.</p>
+      <form class="contact-form" action="mailto:singhanjali41734@gmail.com" method="post" enctype="text/plain" style="margin-top:12px;display:grid;gap:8px">
+        <input type="text" name="name" placeholder="Your name" required>
+        <input type="email" name="email" placeholder="Your email" required>
+        <textarea name="message" rows="5" placeholder="Message"></textarea>
+        <div style="display:flex;gap:8px">
+          <button type="submit">Send Email</button>
+          <a class="ghost" href="mailto:singhanjali41734@gmail.com">Or email me directly</a>
+        </div>
+        <div style="margin-top:8px;color:var(--muted);font-size:14px">Contact: 9798330158</div>
+      </form>
+    </section>
+
+    <footer class="muted">Built with ❤ — Anjali Kumari • <span id="year"></span></footer>
+  </main>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    const reveals = document.querySelectorAll('.reveal');
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
+    },{threshold:0.12});
+    reveals.forEach(r => obs.observe(r));
+
+    const navLinks = document.querySelectorAll('nav a');
+    function onScroll(){
+      const fromTop = window.scrollY + 120;
+      navLinks.forEach(link => {
+        const section = document.querySelector(link.hash);
+        if(!section) return;
+        if(section.offsetTop <= fromTop && section.offsetTop + section.offsetHeight > fromTop){
+          link.style.color = 'white';
+        } else { link.style.color = 'var(--muted)'; }
+      });
+    }
+    window.addEventListener('scroll', onScroll);
+    onScroll();
+  </script>
+</body>
+</html>
